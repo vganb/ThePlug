@@ -1,6 +1,8 @@
 import { useContext } from "react"
+// Imort link
 import { Link } from 'react-router-dom'
 
+// icons
 import { BsPlus, BsEyeFill } from "react-icons/bs";
 
 export const Product = ({product}) => {
