@@ -4,14 +4,17 @@ import { SidebarContext } from "../contexts/SidebarContext"
 // import icons
 import {BsBag} from 'react-icons/bs'
 
+// import thePlugLogo from "../assets/thePlugLogo.png";
+
 export const Header = () => {
 
   const { isOpen, setIsOpen} = useContext(SidebarContext)
   return (
-    <div>
-    <div>Header</div>
+    <header className="bg-pink-600">
+    <div>Header
+      {/* <img src={thePlugLogo} alt="" /> */}</div>
     <div onClick={() => setIsOpen(!isOpen)} className="cursor-pointer flex relative">
       <BsBag className="text-3xl"></BsBag></div>
-    </div>
+    </header>
   )
 }

@@ -5,10 +5,14 @@ import { Link } from 'react-router-dom'
 // icons
 import { BsPlus, BsEyeFill } from "react-icons/bs";
 
-export const Product = ({product}) => {
-  
-  console.log(product)
+// import cart context
+import { CartContext } from "../contexts/CartContext";
 
+export const Product = ({product}) => {
+
+  const {addToCart }= useContext(CartContext)
+
+// destructe product
   const { id, image, category, title, price} = product
 
   return (
@@ -26,15 +30,15 @@ export const Product = ({product}) => {
                 
             </div>
             {/* Buttons */}
-            <div>
-              <button className="absolute top-3 right-3 p-2 flex flex-col items-center justify-center gap-y-2 opacity-0 group-hover:opacity-100 transition-all ">
+            <div className="absolute top-3 right-3 p-2 flex flex-col items-center justify-center gap-y-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <button onClick={() => addToCart(product, id)}>
               <div className="flex justify-center items-center text-white w-12 h-12 bg-red-500">
                 <BsPlus className="text-3xl"/>
               </div>
+              </button>
               <Link to={`/product/${id}`} className="w-12 h-12 bg-white flex justify-center items-center text-primary drop-shadow-xl">
               <BsEyeFill />
               </Link>
-              </button>
 
 
          
@@ -46,7 +50,7 @@ export const Product = ({product}) => {
               <Link to={`/product/${id}`} >
               <h2 className="font-semibold mb-1">{title}</h2>
               </Link>
-              <div className="font-semibold">SEK {price}</div>
+              <div className="font-semibold">$ {price}</div>
             </div>
     </div>
   )
