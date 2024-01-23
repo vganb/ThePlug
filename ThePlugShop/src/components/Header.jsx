@@ -10,7 +10,7 @@ export const Header = () => {
 
   const { isOpen, setIsOpen} = useContext(SidebarContext)
   return (
-    <header className="bg-green-900">
+    <header className="bg-green-900/70 py-5">
     <div>Header
       {/* <img src={thePlugLogo} alt="" /> */}</div>
     <div onClick={() => setIsOpen(!isOpen)} className="cursor-pointer flex relative">
