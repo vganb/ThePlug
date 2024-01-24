@@ -62,10 +62,11 @@ const decreaseAmount = (id) => {
       }
     })
     setCart(newCart)
-  } else {
+  } 
+
+    
     if(cartItem.amount < 2) {
       removeFromCart(id)
-    }
   }
 }
 return <CartContext.Provider 
