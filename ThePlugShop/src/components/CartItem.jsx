@@ -1,9 +1,19 @@
+import { useContext } from "react"
 // import link
 import { Link } from "react-router-dom"
 
 // icons
 import  {IoMdClose, IoMdRemove, IoMdAdd} from 'react-icons/io'
+
+// import cart context
+import {CartContext} from '../contexts/CartContext'
+
+
 export const CartItem = ({item}) => {
+  const { removeFromCart } = useContext(CartContext)
+
+
+
   // destructure item
   const {id, title, image, price, amount} = item
   return (
@@ -20,12 +30,12 @@ export const CartItem = ({item}) => {
           text-primary hover:underline">{title}
           </Link>
 
+            </div>
           {/* remove icon */}
-          <div className="text-2xl cursor-pointer">
+          <div onClick={() => removeFromCart(id)} className="text-2xl cursor-pointer">
             <IoMdClose className="text-gray-400 hover:text-red-500
             transition"/>
           </div>
-            </div>
           <div className="bg-green-400/60 flex gap-x-1  h-[36px] text-sm">
           {/* qty */}
           <div className="flex flex-1 max-w-[100px] items-center h-full border text-black font-medium">
