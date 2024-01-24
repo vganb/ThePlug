@@ -10,7 +10,7 @@ import {CartContext} from '../contexts/CartContext'
 
 
 export const CartItem = ({item}) => {
-  const { removeFromCart } = useContext(CartContext)
+  const { removeFromCart,increaseAmount } = useContext(CartContext)
 
 
 
@@ -46,7 +46,7 @@ export const CartItem = ({item}) => {
             {/* amount */}
             <div className="flex-1 h-full flex justify-center items-center px-2">{amount}</div>
             {/* plus icon */}
-            <div className="flex-1 h-full flex 
+            <div onClick={() => increaseAmount(id)} className="flex-1 h-full flex 
             justify-center items-center cursor-pointer">
             <IoMdAdd/>
             </div>
