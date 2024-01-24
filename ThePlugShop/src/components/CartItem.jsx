@@ -40,13 +40,13 @@ export const CartItem = ({item}) => {
           {/* qty */}
           <div className="flex flex-1 max-w-[100px] items-center h-full border text-black font-medium">
             {/* minus icon */}
-            <div onClick={()=> decreaseAmount(id)} className="flex-1 h-full flex justify-center items-center cursor-pointer">
+            <div onClick={()=> decreaseAmount(id)} className=" flex-1 h-full flex justify-center items-center cursor-pointer">
             <IoMdRemove/>
             </div>
             {/* amount */}
             <div className="flex-1 h-full flex justify-center items-center px-2">{amount}</div>
             {/* plus icon */}
-            <div onClick={() => increaseAmount(id)} className="flex-1 h-full flex 
+            <div onClick={() => increaseAmount(id)} className="flex-1 flex 
             justify-center items-center cursor-pointer">
             <IoMdAdd/>
             </div>
