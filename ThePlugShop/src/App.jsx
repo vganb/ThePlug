@@ -14,7 +14,7 @@ import {Footer} from './components/Footer'
 
 const App = () => {
   return (
-    <div className="overflo-hidden">
+    <div className="overflow-hidden">
 
       <Router>
         <Header/>

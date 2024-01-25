@@ -11,11 +11,12 @@ import { Link } from  'react-router-dom'
 import thePlugLogo from "../assets/thePlugLogo.png";
 
 export const Header = () => {
+  // header state
 
   const { isOpen, setIsOpen} = useContext(SidebarContext)
   const { itemAmount } = useContext(CartContext)
   return (
-    <header className="bg-green-900/70 py-5">
+    <header className="bg-green-800/80 py-5">
     <div className=" container mx-auto flex items-center justify-between h-full">
       
       {/* logo */}
@@ -28,7 +29,7 @@ export const Header = () => {
 
     <div 
     onClick={() => setIsOpen(!isOpen)} 
-    className="cursor-pointer flex relative max-w-[50px]"
+    className="cursor-pointer flex relative"
     >
       <BsBag className="text-3xl"/>
       <div className="bg-red-500 absolute -right-0 -bottom-2 
