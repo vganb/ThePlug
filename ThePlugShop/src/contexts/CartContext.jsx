@@ -53,6 +53,7 @@ const increaseAmount = (id) => {
   addToCart(cartItem, id)
 }
 
+// decrease amount
 const decreaseAmount = (id) => {
   const cartItem = cart.find((item) => {
     return item.id === id
