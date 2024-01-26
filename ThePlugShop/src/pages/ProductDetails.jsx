@@ -6,51 +6,37 @@ import { CartContext } from '../contexts/CartContext'
 
 //  import product context
 import { ProductContext } from '../contexts/ProductContext'
-import { useContext, useState, useEffect } from 'react'
+import { useContext } from 'react'
 
 
 const ProductDetails = () => {
   // get the product id from url
   const { _id } = useParams()
-  console.log('Parsed _id:', parseInt(_id));
   const {products}= useContext(ProductContext)
   const {addToCart} = useContext(CartContext)
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
   
 
   // get the single product based on _id
 
-  useEffect(() => {
-    console.log('Parsed _id:', parseInt(_id));
-    console.log('products:', products);
-  
-    if (products.length === 0) {
-      // Products array is empty, handle accordingly (maybe show a loading message)
-      console.log('Products array is empty');
-      return;
-    }
-  
-    const foundProduct = products.find((item) => item._id === parseInt(_id));
-  
-    if (!foundProduct) {
-      // Product with the specified _id not found, handle accordingly
-      console.log('Product not found');
-      return;
-    }
-  
-    console.log('found product:', foundProduct);
-    setProduct(foundProduct);
-    setLoading(false);
-  }, [products, _id]);
+  const product = products.find(item => {
+    return item._id === parseInt(_id)
+  })
 
+// if product is not found
+  if (!product) {
+    return(
 
+    <section className='h-screen flex justify-center items-center'>
+      Loading...
+    </section>
+    )
+  }
 
   // destructure product
-  const {name, price, description, image} = product
+  const {title, price, description, image} = product
   
   return (
-    <section className='pt-32 pb-12 lg:py-32  h-screen'>
+    <section className='bg-pink-200 pt-32 pb-12 lg:py-32  h-screen'>
       <div className="container mx-auto">
         {/* image och text wrapper */}
         <div className='flex flex-col lg:flex-row'>
@@ -61,7 +47,7 @@ const ProductDetails = () => {
         </div>
         {/* text */}
         <div className='flex-1 text-center lg:text-left'>
-        <h1 className='text-[22px] font-medium mb-2 max-w-[450px] mx-auto lg:mx-0'>{name}</h1>
+        <h1 className='text-[22px] font-medium mb-2 max-w-[450px] mx-auto lg:mx-0'>{title}</h1>
         {/* price */}
         <div className='text-xl text-red-700 font-medium mb-6 '>${price}
         </div>
