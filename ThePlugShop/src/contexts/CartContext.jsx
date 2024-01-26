@@ -35,16 +35,16 @@ useEffect(() => {
 }, [cart])
 
   // add to cart
-  const addToCart = (product, id) => {
+  const addToCart = (product, _id) => {
     const newItem = {...product, amount:1}
     // check if item already in the cart
     const cartItem = cart.find((item) => {
-      return item.id === id
+      return item._id === _id
     })
    // if cart item is already in cart
    if (cartItem) {
     const newCart =[...cart].map((item) => {
-      if(item.id === id){
+      if(item._id === _id){
         return { ...item, amount: cartItem.amount + 1}
       }else {
         return item
@@ -57,9 +57,9 @@ useEffect(() => {
 }
 
 // remove from cart
-const removeFromCart = (id) => {
+const removeFromCart = (_id) => {
   const newCart = cart.filter((item) => {
-    return item.id !== id
+    return item._id !== _id
   })
   setCart(newCart)
 }
@@ -70,19 +70,19 @@ const clearCart = () => {
 }
 
 // increase amount
-const increaseAmount = (id) => {
-  const cartItem = cart.find(item => item.id === id)
-  addToCart(cartItem, id)
+const increaseAmount = (_id) => {
+  const cartItem = cart.find(item => item._id === _id)
+  addToCart(cartItem, _id)
 }
 
 // decrease amount
-const decreaseAmount = (id) => {
+const decreaseAmount = (_id) => {
   const cartItem = cart.find((item) => {
-    return item.id === id
+    return item._id === _id
   })
   if (cartItem) {
     const newCart = cart.map((item) => {
-      if (item.id === id) {
+      if (item._id === _id) {
         return {...item, amount: cartItem.amount - 1}
       } else {
         return item
@@ -93,7 +93,7 @@ const decreaseAmount = (id) => {
 
     
     if(cartItem.amount < 2) {
-      removeFromCart(id)
+      removeFromCart(_id)
   }
 }
 return <CartContext.Provider 

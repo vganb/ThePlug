@@ -11,7 +11,7 @@ const ProductProvider = ({children}) => {
 // fetch products
 useEffect(() => {
   const fetchProducts = async () => {
-    const response = await fetch('https://fakestoreapi.com/products')
+    const response = await fetch('https://js2-ecommerce-api.vercel.app/api/products')
     const data = await response.json()
     setProducts(data)
   }

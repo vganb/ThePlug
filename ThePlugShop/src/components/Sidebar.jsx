@@ -35,7 +35,7 @@ export const Sidebar = () => {
        </div>
        <div className="flex flex-col gap-y-2 h-[420px] lg:h-[420px] overflow-y-auto overflow-x-hidden border-b">
         {cart.map((item) => {
-        return <CartItem item={item} key={item.id}/>
+        return <CartItem item={item} key={item._id}/>
        })}
        </div>
        <div className="flex flex-col gap-y-3 py-4 mt-4">

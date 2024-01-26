@@ -13,10 +13,10 @@ const Home = () => {
 
 
   // filter cetegory
-  const filteredProducts = products.filter((item) => {
-    return item.category === 'electronics' || item.category === 'men\'s clothing'
+//   const filteredProducts = products.filter((item) => {
+//     return item.category === 'electronics' || item.category === 'men\'s clothing'
   
-})
+// })
 
 
   
@@ -27,8 +27,8 @@ return (
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 
         lg:grid-cols-4 xl:grid-cols-5 gap-6 ">
-          {filteredProducts.map((product) => {
-          return <Product product={product} key={product.id}/>
+          {products.map((product) => {
+          return <Product product={product} key={product._id}/>
         })}
         </div>
       </div>
