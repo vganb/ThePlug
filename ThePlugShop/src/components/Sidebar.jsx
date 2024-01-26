@@ -45,7 +45,7 @@ export const Sidebar = () => {
           <span className="mr-2">Total:</span>${parseFloat(total).toFixed(2)}
         </div>
        {/* clear cart icon */}
-          <div onClick={clearCart} className="cursor-pointer py-4 bg-red-400 text-white w-12 h-12 flex text-2xl justify-center items-center">
+          <div onClick={clearCart} className="cursor-pointer py-4 bg-red-400 text-white w-12 h-12 flex text-2xl justify-center items-center rounded-xl">
             <FiTrash2 />
             </div>
           </div>
