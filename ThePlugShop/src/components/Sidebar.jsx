@@ -22,7 +22,7 @@ export const Sidebar = () => {
   
   const {isOpen, handleClose }= useContext(SidebarContext)
 
-    const {cart, clearCart} = useContext(CartContext)
+    const {cart, clearCart, total} = useContext(CartContext)
 
   return (
     <div className={`${isOpen ? 'right-0' : '-right-full'}  w-full bg-white fixed top-0 h-full shadow-xl md:w-[35vw] xl:max-w-[35vw] transition-all duration-300 z-20 px-4 lg:px-[35px]`}>
@@ -33,7 +33,7 @@ export const Sidebar = () => {
             <IoMdArrowForward className='text-2xl' />
           </div>
        </div>
-       <div className="px-5">
+       <div className="flex flex-col gap-y-2 h-[520px] lg:h-[520px] overflow-y-auto overflow-x-hidden border-b">
         {cart.map((item) => {
         return <CartItem item={item} key={item.id}/>
        })}
@@ -42,7 +42,7 @@ export const Sidebar = () => {
         <div className="flex w-full justify-between items-center">
         {/* total amount */}
         <div className="uppercase font-semibold">
-          <span className="mr-2">Total:</span>$1000
+          <span className="mr-2">Total:</span>${parseFloat(total).toFixed(2)}
         </div>
        {/* clear cart icon */}
           <div onClick={clearCart} className="cursor-pointer py-4 bg-red-400 text-white w-12 h-12 flex text-2xl justify-center items-center">
