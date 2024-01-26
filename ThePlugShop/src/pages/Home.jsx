@@ -4,6 +4,7 @@ import { useContext, useEffect } from "react"
 import {ProductContext} from '../contexts/ProductContext'
 // import componeneter
 import {Product} from "../components/Product"
+import { Hero } from "../components/Hero"
 
 const Home = () => {
   // get products from product context
@@ -20,16 +21,19 @@ const Home = () => {
 
   
 return (
-  <div>
+<div>
+  <Hero/>
     <section className="py-16">
       <div className="container mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 ">
-        {filteredProducts.map((product) => {
-        return <Product product={product} key={product.id}/>
-      })}</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 
+        lg:grid-cols-4 xl:grid-cols-5 gap-6 ">
+          {filteredProducts.map((product) => {
+          return <Product product={product} key={product.id}/>
+        })}
+        </div>
       </div>
     </section>
-    </div>
+</div>
   )
 }
 export default Home
