@@ -11,16 +11,19 @@ import { useContext } from 'react'
 
 const ProductDetails = () => {
   // get the product id from url
-  const { _id } = useParams()
-  const {products}= useContext(ProductContext)
+  // const { _id } = useParams()
+  // const {products}= useContext(ProductContext)
   const {addToCart} = useContext(CartContext)
+  const {products} = useContext(ProductContext)
   
 
   // get the single product based on _id
-
+  const {_id} = useParams() 
   const product = products.find(item => {
-    return item._id === parseInt(_id)
+    return item._id === _id
   })
+  console.log(product._id)
+
 
 // if product is not found
   if (!product) {
@@ -33,8 +36,8 @@ const ProductDetails = () => {
   }
 
   // destructure product
-  const {title, price, description, image} = product
-  
+  const {name, price, description, images} = product
+  console.log(name)
   return (
     <section className='bg-pink-200 pt-32 pb-12 lg:py-32  h-screen'>
       <div className="container mx-auto">
@@ -43,11 +46,11 @@ const ProductDetails = () => {
         {/* image */}
         <div className='flex flex-1 justify-center items-center
         mb-8 lg:mb-0'>
-          <img className='max-w-[200px] lg:max-w-sm' src={image} alt="" />
+          <img className='max-w-[200px] lg:max-w-sm' src={images[0]} alt="" />
         </div>
         {/* text */}
         <div className='flex-1 text-center lg:text-left'>
-        <h1 className='text-[22px] font-medium mb-2 max-w-[450px] mx-auto lg:mx-0'>{title}</h1>
+        <h1 className='text-[22px] font-medium mb-2 max-w-[450px] mx-auto lg:mx-0'>{name}</h1>
         {/* price */}
         <div className='text-xl text-red-700 font-medium mb-6 '>${price}
         </div>

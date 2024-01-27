@@ -8,15 +8,23 @@ const ProductProvider = ({children}) => {
   // product state
   const [products, setProducts] = useState([])
 
-// fetch products
-useEffect(() => {
-  const fetchProducts = async () => {
-    const response = await fetch('https://js2-ecommerce-api.vercel.app/api/products')
-    const data = await response.json()
-    setProducts(data)
-  }
-  fetchProducts()
-},[])
+  const [url, setUrl] = useState('https://js2-ecommerce-api.vercel.app/api/products')
+
+  useEffect (() => {
+    const getAllProducts = async () => {
+      const response = await fetch(url)
+      if(!response.ok) {
+        console.log('Cant fetch products', response.status)
+        return
+      }
+      const data = await response.json()
+      // console.log(data)
+      setProducts(data)
+    }
+    getAllProducts()
+
+  },[url])
+  
 
   return (
   <ProductContext.Provider value={{products}}>
