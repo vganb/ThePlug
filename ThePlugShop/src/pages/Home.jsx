@@ -12,13 +12,6 @@ const Home = () => {
  
 
 
-  // filter cetegory
-//   const filteredProducts = products.filter((item) => {
-//     return item.category === 'electronics' || item.category === 'men\'s clothing'
-  
-// })
-
-
   
 return (
 <div>

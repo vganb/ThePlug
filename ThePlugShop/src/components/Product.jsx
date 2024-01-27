@@ -17,13 +17,13 @@ export const Product = ({product}) => {
 
   return (
     <div>
-        <div className="border border-gray-600 h-[300px] mb-4 
+        <div className="border border-gray-300 h-[300px] mb-4 
           relative overflow-hidden group transition rounded">
             <div className="w-full h-full flex justify-center items-center ">
               {/* Image */}
                 <div className="w-[200px] mx-auto flex justify-center items-center">
                <img 
-               className="w-[150px] group-hover:scale-110"
+               className="w-[300px] group-hover:scale-110"
                src={images[0]} 
                alt="" />
                 </div>

@@ -22,7 +22,7 @@ const ProductDetails = () => {
   const product = products.find(item => {
     return item._id === _id
   })
-  console.log(product._id)
+  // console.log(product._id)
 
 
 // if product is not found
@@ -37,7 +37,7 @@ const ProductDetails = () => {
 
   // destructure product
   const {name, price, description, images} = product
-  console.log(name)
+  // console.log(name)
   return (
     <section className='bg-pink-200 pt-32 pb-12 lg:py-32  h-screen'>
       <div className="container mx-auto">
