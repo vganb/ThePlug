@@ -1,6 +1,7 @@
 import FormInput from "./FormInput"
-import { useFormik, Field } from "formik";
+import { useFormik} from "formik";
 import * as Yup from 'yup'
+import TextArea from "./TextArea";
 
 export const Form = () => {
   
@@ -9,7 +10,7 @@ export const Form = () => {
             firstName: '',
             lastName: '',
             email: '',
-            messageBox:'',
+            textmessage:'',
         },
         validationSchema:Yup.object({
             firstName: Yup.string()
@@ -25,7 +26,7 @@ export const Form = () => {
     return (
         <div className="">
 
-    <form onSubmit={form.handleSubmit} className="reg-form" noValidate>
+    <form onSubmit={form.handleSubmit} className="reg-form flex flex-col justify-center items-center" noValidate>
     {/* <div className="form-group"> */}
         {/* <input type="text" id="firstName" onChange={form.handleChange} value={form.values.firstName} className="form-control p-4 border border-black" /> */}
         <FormInput
@@ -59,8 +60,21 @@ export const Form = () => {
                 onBlur={form.handleBlur}
       />
 
+<TextArea
+          label="Message us!" 
+          name="textmessage"
+          value={form.values.textmessage}
+          onChange={form.handleChange}
+          onBlur={form.handleBlur}
+          errorMsg={
+            form.errors.textmessage &&
+            form.touched.textmessage &&
+            form.errors.textmessage
+          }
+        />
 
-        <button type="submit" className="bg-red-300 px-4 py-4 uppercase rounded-md w-2/5">Send</button>
+
+        <button type="submit" className="bg-green-900/80 mt-4 mb-5 px-4 py-4 uppercase rounded-md w-1/5">Send</button>
     {/* </div> */}
     </form>
         </div>
