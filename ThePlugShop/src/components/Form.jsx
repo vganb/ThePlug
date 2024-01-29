@@ -3,6 +3,9 @@ import { useFormik} from "formik";
 import * as Yup from 'yup'
 import TextArea from "./TextArea";
 
+
+const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 export const Form = () => {
   
     const form = useFormik({
@@ -15,7 +18,14 @@ export const Form = () => {
         validationSchema:Yup.object({
             firstName: Yup.string()
             .required('You need to enter a first name')
-            .min(3, 'Your name must be at least 3 chars long')
+            .min(3, 'Your name must be at least 3 chars long'),
+            
+            lastName: Yup.string()
+            .required('You need to enter a last name')
+            .min(3, 'Your name must be atleast 3 chars long'),
+            email: Yup.string()
+            .required('You need to enter an email adress')
+            .matches(emailRegex, 'You need to enter a valid email'),
         }),
         onSubmit: (values) => {
             console.log(values)
