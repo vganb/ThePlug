@@ -38,6 +38,17 @@ export const Header = () => {
       <img className="h-[140px] w-[260px]" src={thePlugLogo} alt="" />
       </div>
       </Link>
+
+
+
+      {/* form link */}
+      <Link to={'/formcontact'}>
+      <div className="flex justify-center items-center">
+        <h1>Form</h1>
+      </div>
+      </Link>
+
+
       {/*  cart*/}
 
     <div 

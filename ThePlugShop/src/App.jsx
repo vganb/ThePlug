@@ -10,7 +10,10 @@ import ProductDetails from './pages/ProductDetails'
 import {Sidebar} from './components/Sidebar'
 import {Header} from './components/Header'
 import {Footer} from './components/Footer'
+import {Form} from './components/Form'
+
 import ProductProvider from './contexts/ProductContext'
+import FormPage from './pages/FormPage'
 
 
 const App = () => {
@@ -23,6 +26,7 @@ const App = () => {
               <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/product/:_id' element={<ProductDetails/>} />
+                <Route path='/formcontact' element={<FormPage/>} />
               </Routes>
 
             <Sidebar/>
