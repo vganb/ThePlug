@@ -2,13 +2,36 @@ import FormInput from "./FormInput"
 import { useFormik} from "formik";
 import * as Yup from 'yup'
 import TextArea from "./TextArea";
+import { useState } from "react";
 
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 export const Form = () => {
+  const [formSubmitted, setFormSubmitted] = useState(false)
+  const [errorMessage, setErrorMessage] = useState(null);
   
-    const form = useFormik({
+  const onSubmit = async (values) => {
+    try {
+      const response = await fetch(/* your fetch call here */ {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+      if (response.status === 200) {
+        setFormSubmitted(true);
+        console.log('Message are sent');
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
+  };
+
+      const form = useFormik({
         initialValues: {
             firstName: '',
             lastName: '',
@@ -26,13 +49,17 @@ export const Form = () => {
             email: Yup.string()
             .required('You need to enter an email adress')
             .matches(emailRegex, 'You need to enter a valid email'),
+            textmessage: Yup.string()
+            .required('You forgot the message to us :)'),
         }),
         onSubmit: (values) => {
             console.log(values)
         }
     })
-    console.log(form)
-  
+    // console.log(form)
+    
+
+
     return (
         <div className="">
 
@@ -87,6 +114,8 @@ export const Form = () => {
         <button type="submit" className="bg-green-900/80 mt-4 mb-5 px-4 py-4 uppercase rounded-md w-1/5">Send</button>
     {/* </div> */}
     </form>
+    {formSubmitted && <p>Your message has been sent!</p>}
+    {errorMessage && <p>{errorMessage}</p>}
         </div>
  
   )
