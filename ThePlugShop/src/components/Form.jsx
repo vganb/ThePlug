@@ -11,49 +11,51 @@ export const Form = () => {
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null);
   
-  const onSubmit = async (values) => {
+  const submitForm = async (values) => {
+    console.log('onSubmit started');
     try {
-      const response = await fetch(/* your fetch call here */ {
+      const response = await fetch('https://js2-ecommerce-api.vercel.app/api/messages',{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(values),
       });
+      console.log('fetch completed', response);
       if (response.status === 200) {
         setFormSubmitted(true);
-        console.log('Message are sent');
+        console.log('Message has been sent');
       } else {
         throw new Error('Form submission failed');
       }
     } catch (error) {
+      console.log('error', error);
       setErrorMessage(error.message);
     }
   };
 
       const form = useFormik({
         initialValues: {
-            firstName: '',
-            lastName: '',
+            name: '',
             email: '',
-            textmessage:'',
+            message:'',
         },
         validationSchema:Yup.object({
-            firstName: Yup.string()
+            name: Yup.string()
             .required('You need to enter a first name')
             .min(3, 'Your name must be at least 3 chars long'),
             
-            lastName: Yup.string()
-            .required('You need to enter a last name')
-            .min(3, 'Your name must be atleast 3 chars long'),
+            // lastName: Yup.string()
+            // .required('You need to enter a last name')
+            // .min(3, 'Your name must be atleast 3 chars long'),
             email: Yup.string()
             .required('You need to enter an email adress')
             .matches(emailRegex, 'You need to enter a valid email'),
-            textmessage: Yup.string()
+            message: Yup.string()
             .required('You forgot the message to us :)'),
         }),
         onSubmit: (values) => {
-            console.log(values)
+          submitForm(values)
         }
     })
     // console.log(form)
@@ -67,16 +69,16 @@ export const Form = () => {
     {/* <div className="form-group"> */}
         {/* <input type="text" id="firstName" onChange={form.handleChange} value={form.values.firstName} className="form-control p-4 border border-black" /> */}
         <FormInput
-        label="First Name"
-        id="firstName"
-        name="firstName"
+        label="Name"
+        id="name"
+        name="name"
         type="text"
-        value={form.values.firstName}
+        value={form.values.name}
         onChange={form.handleChange}
-        errorMsg={form.errors.firstName && form.touched.firstName && form.errors.firstName}
+        errorMsg={form.errors.name && form.touched.name && form.errors.name}
         onBlur={form.handleBlur}
       />
-      <FormInput
+      {/* <FormInput
         label="Last Name"
         id="lastName"
         name="lastName"
@@ -85,7 +87,7 @@ export const Form = () => {
         onChange={form.handleChange}
         errorMsg={form.errors.lastName && form.touched.lastName && form.errors.lastName}
         onBlur={form.handleBlur}
-      />
+      /> */}
         <FormInput
                 label="Email"
                 id="email"
@@ -99,14 +101,14 @@ export const Form = () => {
 
 <TextArea
           label="Message us!" 
-          name="textmessage"
-          value={form.values.textmessage}
+          name="message"
+          value={form.values.message}
           onChange={form.handleChange}
           onBlur={form.handleBlur}
           errorMsg={
-            form.errors.textmessage &&
-            form.touched.textmessage &&
-            form.errors.textmessage
+            form.errors.message &&
+            form.touched.message &&
+            form.errors.message
           }
         />
 
@@ -114,8 +116,8 @@ export const Form = () => {
         <button type="submit" className="bg-green-900/80 mt-4 mb-5 px-4 py-4 uppercase rounded-md w-1/5">Send</button>
     {/* </div> */}
     </form>
-    {formSubmitted && <p>Your message has been sent!</p>}
-    {errorMessage && <p>{errorMessage}</p>}
+    {formSubmitted && <p className="text-emerald-900 text-xl bg-orange-200  rounded-xl text-center">Your message has been sent, Thank you! </p>}
+    {errorMessage && <p className="text-red-900 text-xl bg-orange-200  rounded-xl text-center">{errorMessage}</p>}
         </div>
  
   )

@@ -39,7 +39,7 @@ const ProductDetails = () => {
   const {name, price, description, images} = product
   // console.log(name)
   return (
-    <section className='bg-pink-200 pt-32 pb-12 lg:py-32  h-screen'>
+    <section className='bg-pink-200 pt-32 pb-12 lg:py-32 h-screen'>
       <div className="container mx-auto">
         {/* image och text wrapper */}
         <div className='flex flex-col lg:flex-row'>

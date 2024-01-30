@@ -16,6 +16,7 @@ import ProductProvider from './contexts/ProductContext'
 import FormPage from './pages/FormPage'
 
 
+
 const App = () => {
   return (
     <div className="overflow-hidden">
@@ -27,6 +28,7 @@ const App = () => {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/product/:_id' element={<ProductDetails/>} />
                 <Route path='/formcontact' element={<FormPage/>} />
+            
               </Routes>
 
             <Sidebar/>
