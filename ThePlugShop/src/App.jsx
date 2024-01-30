@@ -14,6 +14,7 @@ import {Form} from './components/Form'
 
 import ProductProvider from './contexts/ProductContext'
 import FormPage from './pages/FormPage'
+import CheckoutPage from './pages/CheckoutPage'
 
 
 
@@ -28,6 +29,7 @@ const App = () => {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/product/:_id' element={<ProductDetails/>} />
                 <Route path='/formcontact' element={<FormPage/>} />
+                <Route path='/checkout' element={<CheckoutPage/>} />
             
               </Routes>
 
