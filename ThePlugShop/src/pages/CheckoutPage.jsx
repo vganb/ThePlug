@@ -1,5 +1,5 @@
 
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import {CartContext} from '../contexts/CartContext'
 import {SidebarContext} from '../contexts/SidebarContext'
 
@@ -7,13 +7,16 @@ import {SidebarContext} from '../contexts/SidebarContext'
 import {IoMdArrowForward} from 'react-icons/io'
 import {FiTrash2} from 'react-icons/fi'
 
+
+
 // componenets
 import {CartItem} from '../components/CartItem'
+import Modal from '../components/Modal'
+
 const CheckoutPage = () => {
   
     const {cart, clearCart, total, itemAmount} = useContext(CartContext)
-    // const [showModal, setShowModal] = useState(false)
-  
+
 const handleBuy = async () => {
 
 const products = cart.map(item =>({
@@ -31,11 +34,12 @@ const products = cart.map(item =>({
     })
 
     if(response.ok) {
-        console.log('status code', response.status)
+        // console.log('status code', response.status)
         console.log(products)
         console.log('Purchase sucessful')
+    
     }else {
-        console.log('Purchase failed')
+        console.log('Purchase failed,empty cart')
     }
 }
 
@@ -44,6 +48,8 @@ const products = cart.map(item =>({
 
     <div className="w-full h-full flex justify-center items-center">CheckoutPage
     
+
+
     </div>
     
     <div className="flex flex-col gap-y-1 h-[420px] lg:h-[420px] overflow-y-auto overflow-x-hidden border-b">
