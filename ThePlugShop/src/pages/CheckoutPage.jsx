@@ -12,7 +12,7 @@ import {CartItem} from '../components/CartItem'
 const CheckoutPage = () => {
   
     const {cart, clearCart, total, itemAmount} = useContext(CartContext)
-
+    // const [showModal, setShowModal] = useState(false)
   
 const handleBuy = async () => {
 

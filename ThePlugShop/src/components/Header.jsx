@@ -5,6 +5,10 @@ import { SidebarContext } from "../contexts/SidebarContext"
 import { CartContext } from "../contexts/CartContext"
 // import icons
 import {BsBag} from 'react-icons/bs'
+import { GrContact } from "react-icons/gr";
+import { AiOutlineHome } from "react-icons/ai";
+
+
 
 import { Link } from  'react-router-dom'
 
@@ -40,13 +44,23 @@ export const Header = () => {
       </Link>
 
 
+      <div className="flex gap-4">
 
-      {/* form link */}
-      <Link to={'/formcontact'}>
+      {/* contact us link */}
+      <Link to={'/contact'}>
       <div className="flex justify-center items-center">
-        <h1>Form</h1>
+      <GrContact className="text-3xl" />
+
       </div>
       </Link>
+      {/* Home */}
+      <Link to={'/'}>
+      <div className="flex justify-center items-center">
+      <AiOutlineHome className="text-3xl" />
+
+      </div>
+      </Link>
+      </div>
 
 
       {/*  cart*/}

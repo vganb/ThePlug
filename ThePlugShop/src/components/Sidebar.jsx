@@ -49,7 +49,7 @@ export const Sidebar = () => {
             <FiTrash2 />
             </div>
           </div>
-          <Link to={'/'} className="bg-gray-300 flex p-4 justify-center items-center text-black w-full font-medium rounded-xl">View Cart</Link>
+          <Link onClick={handleClose} to={'/'} className="bg-gray-300 flex p-4 justify-center items-center text-black w-full font-medium rounded-xl">View All Products</Link>
           <Link onClick={handleClose} to={'/checkout'} className="bg-black flex p-4 justify-center items-center text-white w-full font-medium rounded-xl" >Checkout</Link>
        </div>
     </div>
