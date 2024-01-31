@@ -57,7 +57,7 @@ const products = cart.map(item =>({
         return <CartItem item={item} key={item._id}/>
        })}
        </div>
-
+     
     <div className="flex flex-col w-full justify-between items-center">
         {/* total amount */}
         <div className="uppercase font-semibold">
