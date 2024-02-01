@@ -50,7 +50,7 @@ export const Product = ({product}) => {
               <Link to={`/product/${_id}`} >
               <h2 className="font-semibold mb-1">{name}</h2>
               </Link>
-              <div className="font-semibold">$ {price}</div>
+              <div className="font-semibold">SEK {price}</div>
             </div>
     </div>
   )

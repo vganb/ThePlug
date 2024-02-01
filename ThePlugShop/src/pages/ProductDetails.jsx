@@ -52,7 +52,7 @@ const ProductDetails = () => {
         <div className='flex-1 text-center lg:text-left'>
         <h1 className='text-[22px] font-medium mb-2 max-w-[450px] mx-auto lg:mx-0'>{name}</h1>
         {/* price */}
-        <div className='text-xl text-red-700 font-medium mb-6 '>${price}
+        <div className='text-xl text-red-700 font-medium mb-6 '>SEK{price}
         </div>
         <p className='mb-8 px-6'>{description}</p>
         <button onClick={() => addToCart(product, product._id)} className='bg-black text-white py-4 px-8 rounded-xl'>Add to cart</button>

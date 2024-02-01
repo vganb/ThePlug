@@ -42,7 +42,7 @@ export const Sidebar = () => {
         <div className="flex w-full justify-between items-center">
         {/* total amount */}
         <div className="uppercase font-semibold">
-          <span className="mr-2">Total:</span>${parseFloat(total).toFixed(2)}
+          <span className="mr-2">Total:</span>SEK{parseFloat(total).toFixed(2)}
         </div>
        {/* clear cart icon */}
           <div onClick={clearCart} className="cursor-pointer py-4 bg-red-400 text-white w-12 h-12 flex text-2xl justify-center items-center rounded-xl">
