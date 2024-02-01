@@ -61,7 +61,7 @@ const products = cart.map(item =>({
     <div className="flex flex-col w-full justify-between items-center">
         {/* total amount */}
         <div className="uppercase font-semibold">
-          <span className="mr-2">Total:</span>SEK {parseFloat(total).toFixed(2)}
+          <span className="mr-2">Total:</span>SEK {parseFloat(total)}
         </div>
        {/* clear cart icon */}
             <button onClick={handleBuy} className='bg-green-900/80 mt-4 mb-5 px-4 py-4 uppercase rounded-md w-1/5'>Buy</button>

@@ -57,7 +57,7 @@ export const CartItem = ({item}) => {
           {/* make the price at 2 dec */}
 
           <div className="flex-1 flex justify-end item-center text-black font-medium">
-            {`SEK ${parseFloat(price * amount).toFixed(2)}`}</div>
+            {`SEK ${parseFloat(price * amount)}`}</div>
           </div>
         </div>
           
