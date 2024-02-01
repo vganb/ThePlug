@@ -5,7 +5,7 @@ const FormPage = () => {
   
   
     return (
-    <div>
+    <div className="items-center justify-center pt-24">
     <Form/>
     </div>
     
