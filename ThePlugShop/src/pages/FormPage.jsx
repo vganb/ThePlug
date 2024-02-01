@@ -6,7 +6,6 @@ const FormPage = () => {
   
     return (
     <div>
-    blabla
     <Form/>
     </div>
     
