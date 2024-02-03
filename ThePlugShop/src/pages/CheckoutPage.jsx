@@ -51,14 +51,8 @@ const products = cart.map(item =>({
 
     return (
     <div>
-
-    <div className="w-full h-full flex justify-center items-center">CheckoutPage
     
-
-
-    </div>
-    
-    <div className="flex flex-col gap-y-1 h-[420px] lg:h-[420px] overflow-y-auto overflow-x-hidden border-b">
+    <div className="flex flex-col gap-y-1 h-[420px] lg:h-[420px] overflow-y-auto overflow-x-hidden border-b px-10">
         {cart.map((item) => {
         return <CartItem item={item} key={item._id}/>
        })}
