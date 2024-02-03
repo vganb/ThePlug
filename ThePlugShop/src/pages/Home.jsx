@@ -20,7 +20,7 @@ const Home = () => {
   : products.filter(products => products.category === selectedCategory)
 return (
 <div>
-  <div>
+  <div className="pt-6">
     <select className="block mx-auto w-2/4 p-2 mb-6 text-sm text-gray-900 border rounded-lg bg-gray-50" onChange={handleCategoryChange}>
       <option value="All">All</option>
       <option value="laptop">Laptop</option>
