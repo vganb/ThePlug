@@ -25,7 +25,7 @@ export const Product = ({product}) => {
                <img 
                className="w-[300px] group-hover:scale-110"
                src={images[0]} 
-               alt="" />
+               alt={name} />
                 </div>
                 
             </div>

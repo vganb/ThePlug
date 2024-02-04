@@ -22,7 +22,7 @@ export const CartItem = ({item}) => {
       <div className="w-full min-h-[150px] flex items-center gap-x-4">
         {/* Image */}
         <Link to={`/product/${_id}`}>
-        <img className="max-w-[80px]" src={images[0]} alt="" />
+        <img className="max-w-[80px]" src={images[0]} alt={name} />
         </Link>
         {/* title and remove icon */}
         <div className="w-full flex flex-cols">

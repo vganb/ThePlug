@@ -30,7 +30,7 @@ export const Header = () => {
       {/* logo */}
     <Link to={'/'}>
       <div className="flex justify-center items-center">
-      <img className="h-[140px] w-[260px]" src={thePlugLogo} alt="" />
+      <img className="h-[140px] w-[260px]" src={thePlugLogo} alt="logo" />
       </div>
       </Link>
 
