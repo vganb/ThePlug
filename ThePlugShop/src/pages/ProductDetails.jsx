@@ -10,9 +10,7 @@ import { useContext } from 'react'
 
 
 const ProductDetails = () => {
-  // get the product id from url
-  // const { _id } = useParams()
-  // const {products}= useContext(ProductContext)
+
   const {addToCart} = useContext(CartContext)
   const {products} = useContext(ProductContext)
   
@@ -22,7 +20,7 @@ const ProductDetails = () => {
   const product = products.find(item => {
     return item._id === _id
   })
-  // console.log(product._id)
+
 
 
 // if product is not found

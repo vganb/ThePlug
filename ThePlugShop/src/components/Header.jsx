@@ -15,24 +15,15 @@ import { Link } from  'react-router-dom'
 import thePlugLogo from "../assets/thePlugLogo.png";
 
 export const Header = () => {
-  // header state
-  const [isActive, setIsActive] = useState(true)
+
   
   const { isOpen, setIsOpen} = useContext(SidebarContext)
   const { itemAmount } = useContext(CartContext)
 
-  // event listener
-  // useEffect(()=> {
-  //   window.addEventListener('scroll', ()=> {
-  //     window.scrollY > 60 ? setIsActive(true) : setIsActive(false)
-  //   })
-  // })
+
 
   return (
     <header className='bg-green-800/70'>
-    {/* // className= */}
-    {/* // {`${isActive ? 'bg-green-800/70' : 'bg-purple-800/30'} fixed w-full z-10`}> */}
-
 
     <div className=" container mx-auto flex items-center justify-between h-full">
       

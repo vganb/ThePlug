@@ -66,9 +66,7 @@ export const Form = () => {
         <div className="">
 
     <form onSubmit={form.handleSubmit} className="reg-form flex flex-col justify-center items-center" noValidate>
-    {/* <div className="form-group"> */}
-        {/* <input type="text" id="firstName" onChange={form.handleChange} value={form.values.firstName} className="form-control p-4 border border-black" /> */}
-        <FormInput
+    <FormInput
         label="Name"
         id="name"
         name="name"
@@ -78,16 +76,7 @@ export const Form = () => {
         errorMsg={form.errors.name && form.touched.name && form.errors.name}
         onBlur={form.handleBlur}
       />
-      {/* <FormInput
-        label="Last Name"
-        id="lastName"
-        name="lastName"
-        type="text"
-        value={form.values.lastName}
-        onChange={form.handleChange}
-        errorMsg={form.errors.lastName && form.touched.lastName && form.errors.lastName}
-        onBlur={form.handleBlur}
-      /> */}
+      
         <FormInput
                 label="Email"
                 id="email"
@@ -114,7 +103,7 @@ export const Form = () => {
 
 
         <button type="submit" className="bg-green-900/80 mt-4 mb-5 px-4 py-4 uppercase rounded-md w-1/5">Send</button>
-    {/* </div> */}
+
     </form>
     {formSubmitted && <p className="text-emerald-900 text-xl bg-orange-200  rounded-xl text-center">Your message has been sent, Thank you! </p>}
     {errorMessage && <p className="text-red-900 text-xl bg-orange-200  rounded-xl text-center">{errorMessage}</p>}

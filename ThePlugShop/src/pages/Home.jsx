@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react"
 import {ProductContext} from '../contexts/ProductContext'
 // import componeneter
 import {Product} from "../components/Product"
-import { Hero } from "../components/Hero"
+
 
 const Home = () => {
   // get products from product context

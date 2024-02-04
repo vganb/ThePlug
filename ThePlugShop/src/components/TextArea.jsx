@@ -1,5 +1,3 @@
-import FormInput from "./FormInput"
-
 
 
 const TextArea = ({label, id, name, value, onChange, onBlur, errorMsg}) => {

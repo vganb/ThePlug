@@ -1,17 +1,16 @@
 
 import { useContext, useState } from 'react'
 import {CartContext} from '../contexts/CartContext'
-import {SidebarContext} from '../contexts/SidebarContext'
+
 
 // icons
-import {IoMdArrowForward} from 'react-icons/io'
 import {FiTrash2} from 'react-icons/fi'
 
 
 
 // componenets
 import {CartItem} from '../components/CartItem'
-import Modal from '../components/Modal'
+
 
 const CheckoutPage = () => {
     const [purchaseMesasge, setPurchaseMesasge] = useState(false)
@@ -37,15 +36,13 @@ const products = cart.map(item =>({
     })
 
     if(response.ok) {
-        // console.log('status code', response.status)
         setPurchaseMesasge(true)
-        console.log(products)
         console.log('Purchase sucessful')
-    
+        
     }else {
         setEmptyCart(true)
         return
-        // console.log('Purchase failed,empty cart')
+
     }
 }
 
